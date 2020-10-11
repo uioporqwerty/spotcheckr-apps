@@ -61,7 +61,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>Apple Development: Nitish Sachar (B672MAN6CL)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Nitish Sachar (4V8V3L4FYS)</CodesignKey>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <BuildIpa>true</BuildIpa>
