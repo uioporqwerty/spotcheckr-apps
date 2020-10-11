@@ -16,7 +16,7 @@ jobs:
           dotnet-version: '3.1.x'
 
       - name: Build Android
-        run: msbuild Spotcheckr.Droid/Spotcheckr.Droid.csproj /p:Configuration='Release' /restor
+        run: msbuild Spotcheckr.Droid/Spotcheckr.Droid.csproj /p:Configuration='Release' /restore
 
   build_macos:
     name: 'Build MacOS'
