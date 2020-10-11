@@ -17,7 +17,35 @@ jobs:
 
       - name: Build Android
         run: msbuild Spotcheckr.Droid/Spotcheckr.Droid.csproj /p:Configuration='Release' /restore
+  
+  build_ios:
+    name: 'Build iOS'
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v2
 
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+
+      - name: Import Signing Certificate
+        env:
+          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+        run: |
+          exec .github/scripts/import-certificate.sh
+
+      - name: Import Provisioning Profile
+        env:
+          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+        run: |
+          exec .github/scripts/import-profile.sh
+
+      - name: Build iOS
+        run: msbuild Spotcheckr.iOS/Spotcheckr.iOS.csproj /p:Configuration='Release' /p:Platform='iPhone' /restore
+        
   build_macos:
     name: 'Build MacOS'
     runs-on: macos-latest
