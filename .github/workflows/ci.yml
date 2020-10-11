@@ -16,7 +16,7 @@ jobs:
           dotnet-version: '3.1.x'
 
       - name: Build Android
-        run: msbuild Spotcheckr.Droid/Spotcheckr.Droid.csproj /p:Configuration='Release' -t:restore
+        run: msbuild Spotcheckr.Droid/Spotcheckr.Droid.csproj /p:Configuration='Release' /restor
 
   build_macos:
     name: 'Build MacOS'
@@ -31,7 +31,7 @@ jobs:
           dotnet-version: '3.1.x'
 
       - name: Build MacOS
-        run: msbuild Spotcheckr.macOS/Spotcheckr.macOS.csproj /p:Configuration='Release' /p:Platform='iPhoneSimulator' -t:restore
+        run: msbuild Spotcheckr.macOS/Spotcheckr.macOS.csproj /p:Configuration='Release' /p:Platform='iPhoneSimulator' /restore
 
   build_wasm:
     name: 'Build Web'
