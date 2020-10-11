@@ -3,6 +3,20 @@ name: Continuous Integration
 on: push
 
 jobs:
+  build_macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+
+      - name: Build MacOS
+        run: msbuild Spotcheckr.macOS/Spotcheckr.macOS.csproj /p:Configuration='Release' /p:Platform='iPhoneSimulator'
+        
   build_wasm:
     runs-on: macos-latest
 
