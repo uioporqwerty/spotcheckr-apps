@@ -17,12 +17,9 @@ jobs:
       
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
-
-      - name: Set env
-        run: echo ::set-env name=WORKSPACE::$GITHUB_WORKSPACE
-
+        
       - name: Build UWP
-        run: msbuild Spotcheckr.UWP/Spotcheckr.UWP.csproj /p:Configuration='Release' /p:PackageCertificateKeyFile='${{ env.WORKSPACE }}\Spotcheckr.UWP\Spotcheckr.Uwp_TemporaryKey.pfx' /p:PackageCertificatePassword='${{ secrets.UWP_CERTIFICATE_PASSWORD }}' /restore
+        run: msbuild Spotcheckr.UWP/Spotcheckr.UWP.csproj /p:Configuration='Release' /p:PackageCertificateKeyFile='${{ github.workspace }}\Spotcheckr.UWP\Spotcheckr.Uwp_TemporaryKey.pfx' /p:PackageCertificatePassword='${{ secrets.UWP_CERTIFICATE_PASSWORD }}' /restore
 
   # build_android:
   #   name: 'Build Android'
