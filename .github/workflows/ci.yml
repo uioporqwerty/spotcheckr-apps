@@ -7,7 +7,7 @@ jobs:
     name: 'Build UWP'
     runs-on: windows-latest
     env:
-      - WORKSPACE: $GITHUB_WORKSPACE
+      WORKSPACE: $GITHUB_WORKSPACE
 
     steps:
       - uses: actions/checkout@v2
