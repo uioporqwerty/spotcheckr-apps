@@ -19,7 +19,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build UWP
-        run: msbuild Spotcheckr.UWP/Spotcheckr.UWP.csproj /p:Configuration='Release' /p:PackageCertificateKeyFile='Spotcheckr.UWP/Spotcheckr.Uwp_TemporaryKey.pfx' /p:PackageCertificatePassword='${{ secrets.UWP_CERTIFICATE_PASSWORD }}' /restore
+        run: msbuild Spotcheckr.UWP/Spotcheckr.UWP.csproj /p:Configuration='Release' /p:PackageCertificateKeyFile='$GITHUB_WORKSPACE\Spotcheckr.UWP\Spotcheckr.Uwp_TemporaryKey.pfx' /p:PackageCertificatePassword='${{ secrets.UWP_CERTIFICATE_PASSWORD }}' /restore
 
   build_android:
     name: 'Build Android'
