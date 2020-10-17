@@ -15,9 +15,12 @@ jobs:
         with:
           dotnet-version: '3.1.x'
       
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+
       - name: Build UWP
         run: msbuild Spotcheckr.UWP/Spotcheckr.UWP.csproj /p:Configuration='Release' /restore
-        
+
   build_android:
     name: 'Build Android'
     runs-on: macos-latest
