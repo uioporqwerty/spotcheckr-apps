@@ -1,4 +1,3 @@
-using System;
 using Windows.UI.Xaml;
 
 namespace Spotcheckr.Wasm
@@ -9,8 +8,9 @@ namespace Spotcheckr.Wasm
 
 		static int Main(string[] args)
 		{
-			Windows.UI.Xaml.Application.Start(_ => _app = new App());
 
+			Uno.UI.FeatureConfiguration.UIElement.AssignDOMXamlName = true;
+			Application.Start(_ => _app = new App());
 			return 0;
 		}
 	}
