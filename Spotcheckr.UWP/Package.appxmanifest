@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -8,7 +8,7 @@
 
   <Identity
     Name="f4624356-6102-40e9-839f-ca061ef7a602"
-    Publisher="O=MyCompany"
+    Publisher="CN=Nitish Sachar"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="221b489a-534f-4c67-85ff-916a224eb6c7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
@@ -39,6 +39,8 @@
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

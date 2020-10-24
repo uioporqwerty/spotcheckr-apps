@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Spotcheckr.Shared.Services;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -24,7 +25,8 @@ namespace Spotcheckr
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+			AnalyticsService.TrackView("MainPage");
         }
     }
 }
