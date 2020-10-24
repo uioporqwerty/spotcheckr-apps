@@ -15,13 +15,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Spotcheckr.Shared.Services;
+using UnhandledExceptionEventArgs = Windows.UI.Xaml.UnhandledExceptionEventArgs;
 
 namespace Spotcheckr
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -29,10 +31,11 @@ namespace Spotcheckr
         /// </summary>
         public App()
         {
-            ConfigureFilters(global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
+            ConfigureFilters(Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory);
 
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
+            UnhandledException += OnUnhandledException;
         }
 
         /// <summary>
@@ -48,7 +51,11 @@ namespace Spotcheckr
 				// this.DebugSettings.EnableFrameRateCounter = true;
 			}
 #endif
-            Frame rootFrame = Windows.UI.Xaml.Window.Current.Content as Frame;
+
+#if !__ANDROID__
+	        InitializeAnalyticsService();
+#endif
+			var rootFrame = Windows.UI.Xaml.Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -68,29 +75,30 @@ namespace Spotcheckr
                 Windows.UI.Xaml.Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+			if (e.PrelaunchActivated)
             {
-                if (rootFrame.Content == null)
-                {
-                    // When the navigation stack isn't restored navigate to the first page,
-                    // configuring the new page by passing required information as a navigation
-                    // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                }
-                // Ensure the current window is active
-                Windows.UI.Xaml.Window.Current.Activate();
+	            return;
             }
+
+            if (rootFrame.Content == null)
+            {
+	            // When the navigation stack isn't restored navigate to the first page,
+	            // configuring the new page by passing required information as a navigation
+	            // parameter
+	            rootFrame.Navigate(typeof(MainPage), e.Arguments);
+            }
+            // Ensure the current window is active
+            Windows.UI.Xaml.Window.Current.Activate();
         }
 
-        /// <summary>
+		private static void InitializeAnalyticsService() => AnalyticsService.Initialize();
+
+		/// <summary>
         /// Invoked when Navigation to a certain page fails
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            throw new Exception($"Failed to load {e.SourcePageType.FullName}: {e.Exception}");
-        }
+        private static void OnNavigationFailed(object sender, NavigationFailedEventArgs e) => throw new Exception($"Failed to load {e.SourcePageType.FullName}: {e.Exception}");
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
@@ -99,19 +107,22 @@ namespace Spotcheckr
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private static void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
 
+        private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e) =>
+	        DiagnosticsService.TrackError(e.Exception,
+		        new Dictionary<string, string> { { "ExceptionCategory", "Global" } });
 
-        /// <summary>
-        /// Configures global logging
-        /// </summary>
-        /// <param name="factory"></param>
-        static void ConfigureFilters(ILoggerFactory factory)
+		/// <summary>
+		/// Configures global logging
+		/// </summary>
+		/// <param name="factory"></param>
+		private static void ConfigureFilters(ILoggerFactory factory)
         {
             factory
                 .WithFilter(new FilterLoggerSettings
@@ -159,5 +170,6 @@ namespace Spotcheckr
                 .AddConsole(LogLevel.Information);
 #endif
         }
+
     }
 }
