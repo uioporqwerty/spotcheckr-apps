@@ -21,10 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Analytics\AnalyticsService.AppCenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Analytics\AnalyticsService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Diagnostics\DiagnosticsService.AppCenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\Diagnostics\DiagnosticsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
@@ -39,8 +35,6 @@
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
   </ItemGroup>
 </Project>

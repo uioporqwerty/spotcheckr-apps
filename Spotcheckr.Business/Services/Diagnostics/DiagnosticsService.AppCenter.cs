@@ -1,9 +1,9 @@
-﻿#if __IOS__ || __ANDROID__ || NETFX_CORE || __MACOS__
+﻿#if __IOS__ || __ANDROID__ || NETFX_CORE
 using System;
 using System.Collections.Generic;
 using Microsoft.AppCenter.Crashes;
 
-namespace Spotcheckr.Shared.Services
+namespace Spotcheckr.Business.Services
 {
     public static partial class DiagnosticsService
     {

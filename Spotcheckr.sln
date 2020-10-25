@@ -19,15 +19,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotcheckr.UITests", "Spotcheckr.UITests\Spotcheckr.UITests.csproj", "{7983D152-3CEC-47FF-A806-AC4502898C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotcheckr.UITests", "Spotcheckr.UITests\Spotcheckr.UITests.csproj", "{7983D152-3CEC-47FF-A806-AC4502898C9A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spotcheckr.Business", "Spotcheckr.Business\Spotcheckr.Business.shproj", "{6BD26DAE-6F7C-4075-B9F6-7D6615CD64AF}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{221b489a-534f-4c67-85ff-916a224eb6c7}*SharedItemsImports = 4
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{221b489a-534f-4c67-85ff-916a224eb6c7}*SharedItemsImports = 4
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{40ea03f7-8a22-4143-b251-79bac3eb13d2}*SharedItemsImports = 5
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{40ea03f7-8a22-4143-b251-79bac3eb13d2}*SharedItemsImports = 5
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{469442f1-0044-4023-8269-82c5a4ebb61a}*SharedItemsImports = 4
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{469442f1-0044-4023-8269-82c5a4ebb61a}*SharedItemsImports = 4
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{6bd26dae-6f7c-4075-b9f6-7d6615cd64af}*SharedItemsImports = 13
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{77f14ad6-7947-4ff1-b8d6-b040db9dd7c5}*SharedItemsImports = 4
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{77f14ad6-7947-4ff1-b8d6-b040db9dd7c5}*SharedItemsImports = 4
+		Spotcheckr.Business\Spotcheckr.Business.projitems*{f4624356-6102-40e9-839f-ca061ef7a602}*SharedItemsImports = 4
 		Spotcheckr.Shared\Spotcheckr.Shared.projitems*{f4624356-6102-40e9-839f-ca061ef7a602}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

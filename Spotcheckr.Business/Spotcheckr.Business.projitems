@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6bd26dae-6f7c-4075-b9f6-7d6615cd64af</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Spotcheckr.Business</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Analytics\AnalyticsService.AppCenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Analytics\AnalyticsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Diagnostics\DiagnosticsService.AppCenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Diagnostics\DiagnosticsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+  </ItemGroup>
+</Project>

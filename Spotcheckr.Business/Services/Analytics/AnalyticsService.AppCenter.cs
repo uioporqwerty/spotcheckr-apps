@@ -3,7 +3,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace Spotcheckr.Shared.Services
+namespace Spotcheckr.Business.Services
 {
     public static partial class AnalyticsService
     {

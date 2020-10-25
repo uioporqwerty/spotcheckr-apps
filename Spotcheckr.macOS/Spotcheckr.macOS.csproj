@@ -75,6 +75,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
   </ItemGroup>
   <Import Project="..\Spotcheckr.Shared\Spotcheckr.Shared.projitems" Label="Shared" Condition="Exists('..\Spotcheckr.Shared\Spotcheckr.Shared.projitems')" />
+  <Import Project="..\Spotcheckr.Business\Spotcheckr.Business.projitems" Label="Shared" Condition="Exists('..\Spotcheckr.Business\Spotcheckr.Business.projitems')" />
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
