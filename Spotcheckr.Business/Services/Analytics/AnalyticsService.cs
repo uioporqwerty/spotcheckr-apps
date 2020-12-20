@@ -1,4 +1,4 @@
-﻿namespace Spotcheckr.Shared.Services
+﻿namespace Spotcheckr.Business.Services
 {
     public static partial class AnalyticsService
     {

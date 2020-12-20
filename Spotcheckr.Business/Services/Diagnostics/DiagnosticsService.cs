@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Spotcheckr.Shared.Services
+namespace Spotcheckr.Business.Services
 {
     public static partial class DiagnosticsService
     {

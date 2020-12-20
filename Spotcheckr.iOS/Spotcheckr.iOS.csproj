@@ -159,5 +159,6 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\Spotcheckr.Shared\Spotcheckr.Shared.projitems" Label="Shared" Condition="Exists('..\Spotcheckr.Shared\Spotcheckr.Shared.projitems')" />
+  <Import Project="..\Spotcheckr.Business\Spotcheckr.Business.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

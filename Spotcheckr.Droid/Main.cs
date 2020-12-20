@@ -3,7 +3,7 @@ using Android.App;
 using Android.Runtime;
 using Com.Nostra13.Universalimageloader.Core;
 using Windows.UI.Xaml.Media;
-using Spotcheckr.Shared.Services;
+using Spotcheckr.Business.Services;
 
 namespace Spotcheckr.Droid
 {
